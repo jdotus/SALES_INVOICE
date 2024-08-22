@@ -1,0 +1,128 @@
+<?php
+if(isset($_POST['submit'])) {
+    $quantities = $_POST['quantity'];
+    $descriptions = $_POST['description'];
+
+    // Database connection
+    $conn = new mysqli('localhost', 'username', 'password', 'database');
+
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Loop through each item and insert it into the database
+    for($i = 0; $i < count($quantities); $i++) {
+        $quantity = $quantities[$i];
+        $description = $descriptions[$i];
+
+        // $sql = "INSERT INTO your_table (quantity, description) VALUES ('$quantity', '$description')";
+        
+        if ($conn->query($sql) === TRUE) {
+            echo "New record created successfully";
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+    }
+
+    $conn->close();
+}
+?>
+
+
+<form action="/action_page.php">
+                        <div class="display-flex">
+                            <div class="left-side">
+                                <label for="si-number">S.I. NUMBER: </label>
+                                <input type="number" id="si-number" name="sinumber">
+                                
+                                <label for="sold">S.I. DATE: </label>
+                                
+                                <input type="text" id="sold" name="sold">
+                                
+                                <label for="terms">TERMS: </label>
+                                
+                                <input type="text" id="terms" name="terms">
+                                
+                            </div>
+                            <div class="right-side">
+                                <label for="soldto">SOLD TO: </label>
+                                <input type="text" id="soldto" name="soldto">
+                                
+                                <label for="tin">T.I.N: </label>
+                                
+                                <input type="number" id="tin" name="tin">
+                                
+                                <label for="address">ADDRESS: </label>
+                                
+                                <input type="text" id="address" name="address">
+                                
+                                <label for="bussstyle">BUSS. STYLE: </label>
+                                
+                                <input type="text" id="bussstyle" name="bussstyle">
+                                
+                                <label for="particular">ADDRESS: </label>
+                                
+                                <input type="text" id="particular" name="particular">
+                                
+                            </div>
+                        </div>
+                        
+                        <div class="bottom-part display-flex-bottom" id="input-container">
+                            
+                            <div id="inline-block-quantity">
+                                <label class="quantity" for="quantity">QUANTITY: </label>
+                                <input class="quantity" type="number" id="quantity" name="soldto">
+                                
+                            </div>
+
+                            <div id="inline-block-units">
+                                <label class="units" for="units">UNITS: </label>
+                                
+                                <input class="units" type="number" id="units" name="units">
+                                
+                            </div>
+                            <div id="inline-block-description">
+                                <label class="description" for="description">ITEM DESCRIPTION: </label>
+                                
+                                <input class="description" type="text" id="description" name="description">
+                                
+                            </div>
+                            <div id="inline-block-unitprice">
+                                <label class="unitprice" for="unitprice">UNIT PRICE: </label>
+                                
+                                <input class="unitprice" type="number" id="unitprice" name="unitprice">
+                                
+                            </div>
+                            <div id="inline-block-totalprice">
+                                <label class="totalprice" for="totalprice">TOTAL PRICE: </label>
+                                
+                                <input class="totalprice" type="number" id="totalprice" name="totalprice">
+                            </div>
+                            <div class="right-side">
+                                <label for="vatable_sale">VATable Sale</label>
+                                <input type="number" id="vatable_sale" name="vatable_sale">
+                                
+                                <label for="vat_exempt_sale">VAT Exempt Sale</label>
+                                
+                                <input type="number" id="vat_exempt_sale" name="vat_exempt_sale">
+                                
+                                <label for="zero_rated_sale">Zero Rated Sale</label>
+                                
+                                <input type="number" id="zero_rated_sale" name="zero_rated_sale">
+                                
+                                <label for="total_sale">Total Sale</label>
+                                
+                                <input type="number" id="total_sale" name="total_sale">
+                                
+                                <label for="vat">VAT</label>
+                                
+                                <input type="number" id="vat" name="vat">
+
+                                <label for="total_amount_payable">Total Amount Payable</label>
+                                
+                                <input type="number" id="total_amount_payable" name="total_amount_payable">
+                                
+                            </div>
+                        </div>
+                        <div id="inputContainer"></div>
+                    </form>
