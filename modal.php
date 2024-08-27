@@ -431,8 +431,6 @@
          </div>
     
          <script>
-
-
 const today = new Date();
 const maxDate = today.toISOString().split('T')[0]; // Get only the date part
 
