@@ -288,7 +288,6 @@
             $stmt2->execute();
         }
 
-
         // if($stmt2->execute()) {
             echo "<div class='alert alert-success'>Invoice Added Successfully. <a href='2nd.php?id={$infoKey}' target='_BLANK'>Click </a> here to Print Invoice </div> ";
         // }
@@ -319,36 +318,32 @@
                         <div class="display-flex">
                             <div class="left-side">
                                 <label for="si-number">S.I. NUMBER: </label>
-                                <input type="number" id="si-number" name="sinumber">
+                                <input type="number" id="si-number" name="sinumber" required>
                                 
                                 <label for="sidate">S.I. DATE: </label><br>
                                 
-                                <input type="date" id="sidate" name="sidate"  value="<?php echo date("Y-m-d");?>" require>
+                                <input type="date" id="sidate" name="sidate"  value="<?php echo date("Y-m-d");?>" required>
                                 <br>
                                 
                                 <label for="terms">TERMS: </label>
                                 
-                                <input type="text" id="terms" name="terms">
+                                <input type="text" id="terms" name="terms" required>
                                 
                             </div>
                             <div class="right-side">
                                 <label for="soldto">SOLD TO: </label>
-                                <input type="text" id="soldto" name="soldto">
+                                <input type="text" id="soldto" name="soldto" required>
                                 
                                 <label for="tin">T.I.N: </label>
-                                
-                                <input type="text" id="tin" name="tin">
+                                <input type="text" id="tin" name="tin" required>
                                 
                                 <label for="address">ADDRESS: </label>
-                                
-                                <input type="text" id="address" name="address">
+                                <input type="text" id="address" name="address" required>
                                 
                                 <label for="bussstyle">BUSS. STYLE: </label>
-                                
                                 <input type="text" id="bussstyle" name="bussstyle">
                                 
                                 <label for="particular">PARTICULARS: </label>
-                                
                                 <input type="text" id="particular" name="particulars">
                                 
                             </div>
@@ -431,8 +426,6 @@
          </div>
     
          <script>
-
-
 const today = new Date();
 const maxDate = today.toISOString().split('T')[0]; // Get only the date part
 
