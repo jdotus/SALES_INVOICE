@@ -65,7 +65,7 @@ while($row = mysqli_fetch_array($infoResult)) {
     $pdf->Cell(30.988, 12.954,$row["si_date"],1,0,'C');
     $pdf->MultiCell(88.773, 6.477, wordwrap($row["address"],80, "\n"), 1,'C');
 
-    $pdf->Cell(30.988, 11.938,$row["term"],1,0);
+    $pdf->Cell(30.988, 11.938, $row["term"],1,0);
 
     // $pdf->MultiCell(88.773, 5.969,"BUSS. STYLE:" . " \nPARTICULARS:",1,2); 
 
